@@ -15,14 +15,17 @@
                 .nav-link{
             font-size: 16pt !important;
         }
-        .active {
-            color: #4f2da4 !important;
+        nav .active{
+            color: #fff !important;
+        }
+        .active{
+            color: #0c6dfb !important;
             font-weight: bold;
         }
         .conection {
-            background-color: #4f2da4 !important;
+            background-color: #0c6dfb !important;
             color: white !important;
-            border-color: #4f2da4 !important;
+            border-color: #0c6dfb !important;
         }
         .rounde{
             border-top-left-radius: 100px !important;
@@ -43,7 +46,7 @@
         .card1:hover {
             transform: scale(1.05);
             transition: transform 0.3s ease;
-            background-color: #4c43ce9f !important;
+            background-color: #0c6dfb !important;
             /*background-color: #4f2da47c !important;*/
             /*transition: background-color 0.3s ease;*/
         }
@@ -76,48 +79,267 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#transactions">Transactions</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-dark text-white ms-2 px-3" href="#login">Login</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="alert alert-warning alert-dismissible fade show">
+                <img src="./images/icons/archive-fill.svg" alt="" class="me-1 mb-1">
+                <strong>Warring</strong> only IT student of UY1 have right access to this website!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+            </div>
+        </div>
+        </div>
     <!-- Hero Section -->
     <section id="home" class="hero-section py-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-4">Dashboard</h1>
-                </div>
-            </div>
+                <h1 class="display-4 fw-bold mb-4">Dashboard</h1>
         </div>
     </section>
 
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+            <button class="nav-link active" id="pills-balance-article" data-bs-toggle="pill" data-bs-target="#pills-balance" type="button" role="tab" aria-controls="pills-balance" aria-selected="true">Balance</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+            <button class="nav-link" id="pills-deposite-tab" data-bs-toggle="pill" data-bs-target="#pills-deposite" type="button" role="tab" aria-controls="pills-deposite" aria-selected="false">Deposite</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+            <button class="nav-link" id="pills-withdraw-tab" data-bs-toggle="pill" data-bs-target="#pills-withdraw" type="button" role="tab" aria-controls="pills-withdraw" aria-selected="false">Withdraw</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
+            <button class="nav-link" id="pills-transaction-tab" data-bs-toggle="pill" data-bs-target="#pills-transaction" type="button" role="tab" aria-controls="pills-transaction" aria-selected="false">Make Transaction</button>
         </li>
-      </ul>
-      <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">...</div>
-      </div>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" data-bs-target="#pills-setting" type="button" role="tab" aria-controls="pills-setting" aria-selected="false" >Transaction history</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tab-content">
+        <div class="tab-pane fade show active" id="pills-balance" role="tabpanel" aria-labelledby="pills-balance-article">
+            <div class="container mt-5 mb-5">
+                <div class="row">
+                    <!-- Balance Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-primary">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title">Account Balance</h5>
+                                        <p class="card-text text-muted">Your current available balance</p>
+                                    </div>
+                                    <div class="text-success">
+                                        <i class="fas fa-wallet fa-2x"></i>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                    <h3 class="mb-0"> 2,500.50 <span> FCFA</span></h3>
+                                    <div>
+                                        <span class="badge bg-success">Active</span>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-primary w-100" id="setting-tab" data-bs-toggle="pill" data-bs-target="#pills-setting" type="button" role="tab" aria-controls="pills-setting" aria-selected="false" >View Transactions</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="pills-deposite" role="tabpanel" aria-labelledby="pills-deposite-tab"> 
+            <div class="container mt-5 mb-4">
+        <div class="row">
+            <!-- Deposit Card -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-success">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="card-title">Deposit Funds</h5>
+                                <p class="card-text text-muted">Deposit money into your account</p>
+                            </div>
+                            <div class="text-primary">
+                                <i class="fas fa-credit-card fa-2x"></i>
+                            </div>
+                        </div>
+
+                        <!-- Deposit Form -->
+                        <form id="depositForm">
+                            <div class="mb-3">
+                                <label for="depositAmount" class="form-label">Enter Deposit Amount (FCFA)</label>
+                                <input type="number" class="form-control" id="depositAmount" placeholder="Amount in FCFA" required>
+                                <div id="error-message" class="text-danger mt-2" style="display: none;">
+                                    Please enter a valid amount greater than 500 FCFA.
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <button type="submit" class="btn btn-success w-100">Deposit Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="pills-withdraw" role="tabpanel" aria-labelledby="pills-withdraw-tab">
+            <div class="container mt-5 mb-4">
+                <div class="row">
+                    <!-- Withdrawal Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-danger">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title">Withdraw Funds</h5>
+                                        <p class="card-text text-muted">Withdraw money from your account</p>
+                                    </div>
+                                    <div class="text-danger">
+                                        <i class="fas fa-wallet fa-2x"></i>
+                                    </div>
+                                </div>
+        
+                                <!-- Withdrawal Form -->
+                                <form id="withdrawForm">
+                                    <div class="mb-3">
+                                        <label for="withdrawAmount" class="form-label">Enter Withdrawal Amount (FCFA)</label>
+                                        <input type="number" class="form-control" id="withdrawAmount" placeholder="Amount in FCFA" required>
+                                        <div id="withdrawErrorMessage" class="text-danger mt-2" style="display: none;">
+                                            Please enter a valid amount greater than 500 FCFA and less than or equal to your balance.
+                                        </div>
+                                    </div>
+        
+                                    <div class="d-flex justify-content-between align-items-center mt-4">
+                                        <button type="submit" class="btn btn-danger w-100">Withdraw Now</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="pills-transaction" role="tabpanel" aria-labelledby="pills-transaction-tab">
+
+            <div class="container mt-5 mb-5">
+        <div class="row">
+            <!-- Send Money Card -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-info">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="card-title">Send Money</h5>
+                                <p class="card-text text-muted">Transfer money to another user</p>
+                            </div>
+                            <div class="text-info">
+                                <i class="fas fa-paper-plane fa-2x"></i>
+                            </div>
+                        </div>
+
+                        <!-- Send Money Form -->
+                        <form id="sendMoneyForm">
+                            <div class="mb-3">
+                                <label for="recipientId" class="form-label">Recipient User ID</label>
+                                <input type="text" class="form-control" id="recipientId" placeholder="Enter recipient's user ID" required>
+                                <div id="recipientErrorMessage" class="text-danger mt-2" style="display: none;">
+                                    Please enter a valid recipient user ID.
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="sendAmount" class="form-label">Amount to Transfer (FCFA)</label>
+                                <input type="number" class="form-control" id="sendAmount" placeholder="Enter amount to send" required>
+                                <div id="amountErrorMessage" class="text-danger mt-2" style="display: none;">
+                                    Please enter a valid amount greater than 500 FCFA and less than or equal to your balance.
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <button type="submit" class="btn btn-info w-100">Send Money</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+
+        </div>
+
+        <div class="tab-pane fade" id="pills-setting" role="tabpanel" aria-labelledby="pills-setting-tab">
+            <div class="table-responsive-lg">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr class="">
+                            <th scope="col">Hours</th>
+                            <th scope="col">Monday</th>
+                            <th scope="col">Tuesday</th>
+                            <th scope="col">Wednesday</th>
+                            <th scope="col">Thursday</th>
+                            <th scope="col">Friday</th>
+                            <th scope="col">Saturday</th>
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        <tr>
+                            <th scope="row">7h - 9h55</th>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td>TD INF 131 G7 and G8 S005, TD INF 141 G9 and G10 S006</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10h05 - 12h55</th>
+                            <td> </td>
+                            <td> </td>
+                            <td>TD INF 141 G3 and G4 S005</td>
+                            <td>TD INF 141 G5 and G6 S005</td>
+                            <td>TD INF 131 G3 and G4 S005</td>
+                            <td>TD PHY 161 ALL G9 and G10, TD INF 131 G9 and G10 S005</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">13h05 - 15h55</th>
+                            <td>TD INF 151 G3 and G4 S008</td>
+                            <td>TD INF 121 G7 and G8 S005, TD INF 151 G5 and G6 S008</td>
+                            <td>TD INF 121 G9 and G10 S005</td>
+                            <td>TD INF 151 G1 and G2 S005, TD INF 121 G3 and G4 S008</td>
+                            <td>TD INF 131 G5 and G6 S005, TD INF 141 G7 and G8</td>
+                            <td>TD INF 141 G1 et G2 S005</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">16h05 - 18h55</th>
+                            <td>TD INF 121 G5 and G6 S005</td>
+                            <td>TD INF 161 G1 and G2 S005</td>
+                            <td>TD INF 151 G9 and G10 S005, TD INF 121 G1 and G2 S008</td>
+                            <td> </td>
+                            <td>TD INF 151 G7 and G8 S005, TD INF 131 G1 and G2 S008</td>
+                            <td>TD PHY 161 G7 and G8 A135</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">19h05 - 21h55</th>
+                            <td>TD MAT 131 G1 and G2 A1002, TD MAT 131 G5 and G6 A135, TD MAT 131 G3 and G4 A250</td>
+                            <td>TD MAT 131 G7 and G8 A135</td>
+                            <td> </td>
+                            <td> </td>
+                            <td>TD PHY 161 G5 and G6 A135</td>
+                            <td> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>    
+        </div>
+    </div>
+
 
     <!-- Footer -->
     <footer class="footer py-5 bg-dark text-white">
@@ -185,5 +407,93 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
+    <script>
+        document.getElementById('depositForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the input value
+            const depositAmount = parseInt(document.getElementById('depositAmount').value);
+
+            // Validate the deposit amount
+            if (isNaN(depositAmount) || depositAmount <= 500) {
+                // Show error message if invalid
+                document.getElementById('error-message').style.display = 'block';
+            } else {
+                // Proceed with form submission logic (e.g., submit to the server)
+                document.getElementById('error-message').style.display = 'none';
+                alert(`Deposit of ${depositAmount} FCFA successful!`);
+                // You can add a function to actually submit the form data or trigger a backend request
+            }
+        });
+    </script>
+    <script>
+        // Example balance (this would normally come from your server-side or database)
+        const currentBalance = 2500;  // Assume the user has 2500 FCFA in their account
+
+        document.getElementById('withdrawForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the input value
+            const withdrawAmount = parseInt(document.getElementById('withdrawAmount').value);
+
+            // Validate the withdrawal amount
+            if (isNaN(withdrawAmount) || withdrawAmount <= 500 || withdrawAmount > currentBalance) {
+                // Show error message if invalid
+                document.getElementById('withdrawErrorMessage').style.display = 'block';
+            } else {
+                // Proceed with form submission logic (e.g., submit to the server)
+                document.getElementById('withdrawErrorMessage').style.display = 'none';
+                alert(`Withdrawal of ${withdrawAmount} FCFA successful!`);
+                // You can add a function to actually submit the form data or trigger a backend request
+            }
+        });
+    </script>
+    <script>
+        // Example balance (this would normally come from your server-side or database)
+        const currentBalance = 2500;  // Assume the user has 2500 FCFA in their account
+        const validUserIds = ["user123", "user456", "user789"]; // Example valid user IDs
+
+        document.getElementById('sendMoneyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the input values
+            const recipientId = document.getElementById('recipientId').value.trim();
+            const sendAmount = parseInt(document.getElementById('sendAmount').value);
+
+            // Validate the recipient ID
+            if (!validUserIds.includes(recipientId)) {
+                document.getElementById('recipientErrorMessage').style.display = 'block';
+                return;
+            } else {
+                document.getElementById('recipientErrorMessage').style.display = 'none';
+            }
+
+            // Validate the send amount
+            if (isNaN(sendAmount) || sendAmount <= 500 || sendAmount > currentBalance) {
+                document.getElementById('amountErrorMessage').style.display = 'block';
+                return;
+            } else {
+                document.getElementById('amountErrorMessage').style.display = 'none';
+            }
+
+            // If both validations pass, simulate sending money (you can replace this with actual logic)
+            alert(`Successfully transferred ${sendAmount} FCFA to ${recipientId}!`);
+            // You can add a function to submit the form data to your backend, for example, using AJAX
+        });
+    </script>
+
+
+
+<script>
+    // Get the buttons by their IDs
+    const button1 = document.getElementById('setting-tab');
+    const button2 = document.getElementById('pills-setting-tab');    
+    // Add click event listener for button1
+    button1.addEventListener('click', function() {
+        // Trigger button2 click when button1 is clicked
+        button2.click();
+    });
+</script>
+
 </body>
 </html>

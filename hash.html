@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD5 Hashing Example</title>
+    <!-- Import the correct version of crypto-js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1-crypto-js.js"></script>
+</head>
+<body>
+    <h1>MD5 Hashing Example</h1>
+
+    <!-- Input field for text -->
+    <label for="inputText">Enter Text to Hash:</label>
+    <input type="text" id="inputText" placeholder="Type something here">
+    <button onclick="generateMD5()">Generate MD5 Hash</button>
+
+    <!-- Section to display the generated hash -->
+    <h3>Generated MD5 Hash:</h3>
+    <p id="md5Result"></p>
+
+    <script>
+        // Function to generate MD5 hash
+        function generateMD5() {
+            // Get the text from the input field
+            const inputText = document.getElementById('inputText').value;
+
+            // Check if inputText is not empty
+            if (inputText.trim() === "") {
+                alert("Please enter some text to hash.");
+                return;
+            }
+
+            // Generate the MD5 hash using CryptoJS
+            const hash = CryptoJS.MD5(inputText).toString(CryptoJS.enc.Hex);
+
+            // Display the hash in the result paragraph
+            document.getElementById('md5Result').innerText = hash;
+        }
+    </script>
+</body>
+</html>

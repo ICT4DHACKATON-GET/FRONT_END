@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css" type = "text/css">
+    <link rel="stylesheet" href="./style/css/bootstrap.css" type = "text/css">
+    <link rel="icon" href="logo_appli.png">
+    <script defer src="https://cdn.jsdelivr.net/npm/appwrite@8.0.0"></script>
+    <script defer src="./style/js/bootstrap.bundle.js"></script>
+    <title> S'inscrire</title>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1 class="text-center">Créér un compte</h1>
+                <span>Ou utiliser votre email pour vous enregistrer</span>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirmer le mot de passe">
+                
+                <button>S'inscrire</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1 class="text-center">Connecter vous</h1>
+                <br>
+                <span>Ou utiliser votre mot de passe d-email</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Mot de passe oublié?</a>
+                <button>Connexion</button>
+            </form>
+        </div>
+        
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bienvenue!</h1>
+                    <p>Remplissez les champs pour avoir accès au services</p>
+                    <button class="hidden" id="login">Se Connecte</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Salut, l'ami! </h1>
+                    <p>Remplissez les champs pour avoir accès au services</p>
+                    <button class="hidden" id="register">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

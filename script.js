@@ -1,4 +1,4 @@
-const ip = "http://192.168.1.142:5000/";
+const ip = "https://78e3-102-244-45-26.ngrok-free.app/";
 
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');

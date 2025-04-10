@@ -59,7 +59,7 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand" href="#">
-                <i class="fas fa-link-slash me-2"></i>SecureChain Pay
+                <i class="fas fa-link-slash me-2"></i>GET-Binance $
             </a>
             
             <!-- Mobile Toggle Button -->
@@ -77,7 +77,7 @@
                         <a class="nav-link" href="#features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#transactions">Transactions</a>
+                        <a class="nav-link" href="#setting-tab" >Transactions</a>
                     </li>
                 </ul>
             </div>
@@ -93,9 +93,13 @@
         </div>
         </div>
     <!-- Hero Section -->
-    <section id="home" class="hero-section py-5">
-        <div class="container">
-                <h1 class="display-4 fw-bold mb-4">Dashboard</h1>
+    <section id="home" class="hero-section py-2">
+        <div class="container-fluid"  >
+            <div class="row gy-2 ps-1 py-4">
+                <div class="col-12 col-lg-4 text-start "> <h4 class=" fw-bold mb-1" id="nom">Jhon Doe</h4> </div>
+                <div class="col-12 col-lg-4 text-start"> <h4 class=" fw-bold mb-1" id="email">jhonedoe@mail.com</h4> </div>
+                <div class="col-12 col-lg-4 text-start"> <h4 class=" fw-bold mb-1" id="num">67*****</h4> </div>
+            </div>
         </div>
     </section>
 
@@ -119,7 +123,7 @@
             <button class="nav-link active" id="pills-balance-article" data-bs-toggle="pill" data-bs-target="#pills-balance" type="button" role="tab" aria-controls="pills-balance" aria-selected="true">Balance</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-deposite-tab" data-bs-toggle="pill" data-bs-target="#pills-deposite" type="button" role="tab" aria-controls="pills-deposite" aria-selected="false">Deposite</button>
+            <button class="nav-link" id="pills-deposite-tab" data-bs-toggle="pill" data-bs-target="#pills-deposite" type="button" role="tab" aria-controls="pills-deposite" aria-selected="false">Deposit</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-withdraw-tab" data-bs-toggle="pill" data-bs-target="#pills-withdraw" type="button" role="tab" aria-controls="pills-withdraw" aria-selected="false">Withdraw</button>
@@ -289,64 +293,39 @@
         </div>
 
         <div class="tab-pane fade" id="pills-setting" role="tabpanel" aria-labelledby="pills-setting-tab">
-            <div class="table-responsive-lg">
+            <div class="table-responsive-lg m-1 m-md-3 m-lg-5">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
-                        <tr class="">
-                            <th scope="col">Hours</th>
-                            <th scope="col">Monday</th>
-                            <th scope="col">Tuesday</th>
-                            <th scope="col">Wednesday</th>
-                            <th scope="col">Thursday</th>
-                            <th scope="col">Friday</th>
-                            <th scope="col">Saturday</th>
-                        </tr>
+                            <th scope="col md-3">User ID</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Transaction ID</th>
+                            <th scope="col">Reciever ID</th>
                     </thead>
         
                     <tbody>
                         <tr>
-                            <th scope="row">7h - 9h55</th>
+                            <th scope="row"></th>
                             <td> </td>
                             <td> </td>
                             <td> </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row"></th>
                             <td> </td>
                             <td> </td>
-                            <td>TD INF 131 G7 and G8 S005, TD INF 141 G9 and G10 S006</td>
+                            <td> </td>
                         </tr>
                         <tr>
-                            <th scope="row">10h05 - 12h55</th>
+                            <th scope="row"></th>
                             <td> </td>
                             <td> </td>
-                            <td>TD INF 141 G3 and G4 S005</td>
-                            <td>TD INF 141 G5 and G6 S005</td>
-                            <td>TD INF 131 G3 and G4 S005</td>
-                            <td>TD PHY 161 ALL G9 and G10, TD INF 131 G9 and G10 S005</td>
+                            <td> </td>
                         </tr>
                         <tr>
-                            <th scope="row">13h05 - 15h55</th>
-                            <td>TD INF 151 G3 and G4 S008</td>
-                            <td>TD INF 121 G7 and G8 S005, TD INF 151 G5 and G6 S008</td>
-                            <td>TD INF 121 G9 and G10 S005</td>
-                            <td>TD INF 151 G1 and G2 S005, TD INF 121 G3 and G4 S008</td>
-                            <td>TD INF 131 G5 and G6 S005, TD INF 141 G7 and G8</td>
-                            <td>TD INF 141 G1 et G2 S005</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">16h05 - 18h55</th>
-                            <td>TD INF 121 G5 and G6 S005</td>
-                            <td>TD INF 161 G1 and G2 S005</td>
-                            <td>TD INF 151 G9 and G10 S005, TD INF 121 G1 and G2 S008</td>
-                            <td> </td>
-                            <td>TD INF 151 G7 and G8 S005, TD INF 131 G1 and G2 S008</td>
-                            <td>TD PHY 161 G7 and G8 A135</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">19h05 - 21h55</th>
-                            <td>TD MAT 131 G1 and G2 A1002, TD MAT 131 G5 and G6 A135, TD MAT 131 G3 and G4 A250</td>
-                            <td>TD MAT 131 G7 and G8 A135</td>
+                            <th scope="row"> </th>
                             <td> </td>
                             <td> </td>
-                            <td>TD PHY 161 G5 and G6 A135</td>
                             <td> </td>
                         </tr>
                     </tbody>
@@ -361,7 +340,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5 class="fw-bold mb-3"><i class="fas fa-link-slash me-2"></i>SecureChain Pay</h5>
+                    <h5 class="fw-bold mb-3"><i class="fas fa-link-slash me-2"></i>GET-Binance</h5>
                     <p class="mb-3">The most secure blockchain payment platform, designed to protect your financial transactions.</p>
                     <div class="social-icons">
                         <a href="#" class="me-2 text-white"><i class="fab fa-twitter"></i></a>

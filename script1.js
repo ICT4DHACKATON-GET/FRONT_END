@@ -9,41 +9,32 @@ const button1 = document.getElementById('setting-tab');
 const button2 = document.getElementById('pills-setting-tab');    
 // Add click event listener for button1
 button1.addEventListener('click', function() {
+    alert("coucou");
 // Trigger button2 click when button1 is clicked
 button2.click();
 });
 
 // Example balance (this would normally come from your server-side or database)
 let currentBalance = 0;  // Assume the user has 0 FCFA in their account
-const validUserIds = ["user123", "user456", "user789"]; // Example valid user IDs
 
-document.getElementById('sendMoneyForm').addEventListener('submit', function(event) {
+document.getElementById('withdrawForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Get the input values
-    const recipientId = document.getElementById('recipientId').value.trim();
-    const sendAmount = parseInt(document.getElementById('sendAmount').value);
+    // Get the input value
+    const Amount = parseInt(document.getElementById('withdrawAmount').value);
 
-    // Validate the recipient ID
-    if (!validUserIds.includes(recipientId)) {
-        document.getElementById('recipientErrorMessage').style.display = 'block';
-        return;
-    } else {
-        document.getElementById('recipientErrorMessage').style.display = 'none';
+    // Validate the deposit amount
+    if (isNaN(Amount) || Amount <= 100) {
+        // Show error message if invalid
+        document.getElementById('error-message').style.display = 'block';
+    } 
+    else {
+        // Proceed with form submission logic (e.g., submit to the server)
+        document.getElementById('error-message').style.display = 'none';
+        //alert(`Deposit of ${depositAmount} FCFA successful!`);
+        // You can add a function to actually submit the form data or trigger a backend request
+        depose(id, Amount)
     }
-
-    // Validate the send amount
-    if (isNaN(sendAmount) || sendAmount <= 100 || sendAmount > currentBalance) {
-        document.getElementById('amountErrorMessage').style.display = 'block';
-        return;
-    } else {
-        document.getElementById('amountErrorMessage').style.display = 'none';
-    }
-
-    // If both validations pass, simulate sending money (you can replace this with actual logic)
-    //alert(`Successfully transferred ${sendAmount} FCFA to ${recipientId}!`);
-    // You can add a function to submit the form data to your backend, for example, using AJAX
-    depose(id, sendAmount)
 });
 
 
@@ -57,7 +48,8 @@ document.getElementById('depositForm').addEventListener('submit', function(event
     if (isNaN(depositAmount) || depositAmount <= 100) {
         // Show error message if invalid
         document.getElementById('error-message').style.display = 'block';
-    } else {
+    } 
+    else {
         // Proceed with form submission logic (e.g., submit to the server)
         document.getElementById('error-message').style.display = 'none';
         //alert(`Deposit of ${depositAmount} FCFA successful!`);
@@ -106,13 +98,15 @@ function depose(ide, montant){
         console.log('Réponse de l\'API:', data);
         // Traiter la réponse ici (ex: afficher un message, mettre à jour l'UI)
 
-        if (data == 200){
+        if (data.message == "200"){
             // Optionally, display a success message
             const successAlert = document.createElement('div');
             successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
             successAlert.role = 'alert';
             successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
             document.body.prepend(successAlert);
+
+            get_info(id)
           }
     
           else {
@@ -151,13 +145,17 @@ function collect(ide, montant){
     .then(response => response.json()) // Récupérer la réponse en format JSON
     .then(data => {
       console.log('Réponse de l\'API:', data);
-      if (data == "200"){
+      if (data.message == "200"){
+
         // Optionally, display a success message
         const successAlert = document.createElement('div');
         successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
         successAlert.role = 'alert';
         successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
         document.body.prepend(successAlert);
+
+        get_info(id)
+
       }
 
       else {

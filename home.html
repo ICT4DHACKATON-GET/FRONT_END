@@ -16,8 +16,9 @@
             font-size: 16pt !important;
         }
         #navi{
-            background-color: #0a0a0a !important;
-            height: 17vh;
+            background-color: #4f2da4 !important;
+            border-shad
+            
         }
         .active {
             color: #0c6dfb !important;
@@ -55,10 +56,17 @@
 
         #about, #features{
             background-color: #F5F7FB !important;
-
             h3{
                 color: #4f2da4;
+                justify-items: center;
             }
+        }
+        #rw{
+            background-color: #4f2da4 !important;
+        }
+        #bdy{
+            background-color: #F5F7FB !important;
+            padding-top: 10px;
         }
     </style>
 
@@ -69,7 +77,7 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand" href="#">
-                <i class="fas fa-link-slash me-2"></i>GETBINANCE
+                <i class="fas fa-link-slash me-2"></i>GET-BINANCE
             </a>
             
             <!-- Mobile Toggle Button -->
@@ -84,10 +92,10 @@
                         <a class="nav-link active" href="#home">Acceuil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#features">A propos</a>
+                        <a class="nav-link" href="#about">A propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#transactions">Fonctionalités</a>
+                        <a class="nav-link" href="#features">Fonctionalités</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#dashboard">Dashboard</a>
@@ -107,15 +115,16 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h1 class="display-4 fw-bold mb-4">BIENVENUE CHEZ NOUS!</h1>
-                    <p class="lead mb-4">GETBINANCE, la finance en confiance</p>
+                    <p class="lead mb-4">GET-BINANCE, la finance en confiance</p>
                     <div class="d-flex gap-3 mb-4">
-                        <button class="btn btn-primary btn-lg">S'Inscrire</button>
-                        <button class="btn btn-outline-secondary btn-lg">Connexion</button>
+                        <a href="login.html"><button class="btn btn-primary btn-lg">S'Inscrire</button></a>
+                        <a href="login.html"><button class="btn btn-outline-secondary btn-lg">Connexion</button></a>
+    
                     </div>
                     <div class="security-badges">
-                        <span class="badge bg-light text-dark me-2"><i class="fas fa-shield-alt me-1"></i> End-to-End Encryption</span>
-                        <span class="badge bg-light text-dark me-2"><i class="fas fa-lock me-1"></i> Secure Authentication</span>
-                        <span class="badge bg-light text-dark"><i class="fas fa-check-circle me-1"></i> Verified by ChainSec</span>
+                        <span class="badge bg-light text-dark me-2"><i class="fas fa-shield-alt me-1"></i> Chiffrement de bouts en bouts</span>
+                        <span class="badge bg-light text-dark me-2"><i class="fas fa-lock me-1"></i> Authentication sécurisé</span>
+                        <span class="badge bg-light text-dark"><i class="fas fa-check-circle me-1"></i> Verifié par ChainSec</span>
                     </div>
                 </div>
                 <div class="col-lg-6 mt-4 mt-lg-0 text-center">
@@ -125,8 +134,9 @@
         </div>
     </section>
 
-    <!--About us-->
-    <section id="about" class="">
+   <div id="bdy">
+     <!--About us-->
+     <section id="about" class="">
         <div class="container">
             <div class="col-111">
                 <div class="tit">
@@ -189,19 +199,16 @@
             </div>
         </div>>
     </section>
+   </div>
 
     <!-- Call-to-Action Section -->
-    <section class="cta-section py-5 bg-primary text-white">
+    <section class="cta-section py-5 bg-primary text-white" id="rw">
         <div class="container text-center">
             <h2 class="mb-4">Prêt à découvrir des paiements blockchain sécurisés ?</h2>
             <p class="lead mb-4">Rejoignez des milliers d'utilisateurs qui font confiance à SecureChain Pay pour leurs besoins en sécurité financière.</p>
             <div class="d-flex justify-content-center gap-3">
-<<<<<<< HEAD
                 <a class="btn btn-light btn-lg px-4">S'Inscrire</a>
                 <button class="btn btn-outline-secondary btn-lg">Connexion</button>
-=======
-                <a class="btn btn-light btn-lg px-4" href="login.html">Get Started</a>
->>>>>>> 2b86ef01281b4070a3bc536e890a689e8d400585
             </div>
         </div>
     </section>
@@ -211,7 +218,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5 class="fw-bold mb-3"><i class="fas fa-link-slash me-2"></i>GETBINANCE</h5>
+                    <h5 class="fw-bold mb-3"><i class="fas fa-link-slash me-2"></i>GET-BINANCE</h5>
                     <p class="mb-3">Sécurisez vos transactions sur les réseaux locaux camerounais.</p>
                     <div class="social-icons">
                         <a href="#" class="me-2 text-white"><i class="fab fa-twitter"></i></a>
@@ -223,35 +230,34 @@
                 <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
                     <h6 class="fw-bold mb-3">Company</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Careers</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">A Propos</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Team</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Nous Contacter</a></li>
                         <li><a href="#" class="text-white-50 text-decoration-none">Press</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
-                    <h6 class="fw-bold mb-3">Product</h6>
+                    <h6 class="fw-bold mb-3">Produit</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Features</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Fonctionalités</a></li>
                         <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Solutions</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Pricing</a></li>
                         <li><a href="#" class="text-white-50 text-decoration-none">API Docs</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
                     <h6 class="fw-bold mb-3">Resources</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Community</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Partners</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Aide</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Communoté</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Partenaires</a></li>
                         <li><a href="#" class="text-white-50 text-decoration-none">Security</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
                     <h6 class="fw-bold mb-3">Legal</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Liscences</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Cookies</a></li>
                         <li><a href="#" class="text-white-50 text-decoration-none">Compliance</a></li>
                     </ul>
                 </div>
@@ -259,7 +265,7 @@
             <hr class="mt-4 mb-3 border-secondary">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="small text-white-50 mb-md-0">© 2025 GETBINANCE. All rights reserved.</p>
+                    <p class="small text-white-50 mb-md-0">© 2025 GET-BINANCE. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <img src="https://via.placeholder.com/200x30/FFFFFF/333333?text=Payment+Partners" alt="Payment Partners" class="img-fluid" style="max-height: 30px;">

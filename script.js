@@ -75,13 +75,11 @@ function login(){
     // Prevent the default form submit action
   event.preventDefault();
 
+  add_cookkie(data.message);
+
   // Retrieve values from the input fields using their IDs
   const emailValue2 = document.getElementById('emailInput2').value;
   const passwordValue2 = document.getElementById('passwordInput2').value;
-
-  // Use the values as needed (for example, logging them in the console)
-  console.log("Email :", emailValue2);
-  console.log("Mot de passe :", passwordValue2);
 
   // Further processing, such as sending these values to a back-end server, could be performed here.
 
@@ -98,23 +96,61 @@ function login(){
 })
 .then(response => response.json())
 .then(data => {
-  console.log("Réponse du serveur :", data);
-  // Attendre 2 secondes avant de rediriger
-  setTimeout(() => {
-    window.location.href = "profile.html";
-  }, 2000);
+
+    if (data.message != "400"){
+
+        // Optionally, display a success message
+        const successAlert = document.createElement('div');
+        successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
+        successAlert.role = 'alert';
+        successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        document.body.prepend(successAlert);
+
+        // Attendre 2 secondes avant de rediriger
+        setTimeout(() => {
+        window.location.href = "profile.html";
+        }, 2000);
+        add_cookkie(data.message);
+
+    }
+    else {
+        // Optionally, display a success message
+        const successAlert = document.createElement('div');
+        successAlert.className = 'alert alert-danger alert-dismissible fade show mt-3';
+        successAlert.role = 'alert';
+        successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        document.body.prepend(successAlert);
+    }
 })
 .catch(error => {
-  //console.error("Erreur :", error);
+  console.error("Erreur :", error);
   alert("erreur de connexion");
 });
 
 }
 
+function getSelectedOperator() {
+    // Get the selected radio button (service type)
+    const selectedService = document.querySelector('input[name="serviceType"]:checked');
+    
+    // Declare a variable to store the operator
+    let operator;
+
+    if (selectedService) {
+        // Store the selected service (MTN or Orange) in the operator variable
+        operator = selectedService.value;
+        // Log the operator to the console (you can use it further as needed)
+        console.log("Selected Operator: " + operator);
+    }
+    console.log("Selected Operator: " + operator);
+    // Return the operator variable in case you want to use it elsewhere
+    return operator;
+}
+
+
 function registrer(){
 
     // Prevent the default form submission behavior
-    alert("Formulaire soumis !");
     event.preventDefault();
 
     // Retrieve the values from the form inputs
@@ -129,12 +165,6 @@ function registrer(){
         return;
     }
 
-    // Now you have stored form values in your variables:
-    console.log("Nom :", nameValue);
-    console.log("Email :", emailValue);
-    console.log("Mot de passe :", passwordValue);
-    // You can now use these variables to further process the form data, for example, send them to a server.
-
     fetch(ip+"sigin", {
   method: "POST",
   headers: {
@@ -143,7 +173,7 @@ function registrer(){
   body: JSON.stringify({
     name:nameValue,
     password:passwordValue,
-    operateur:"MTN",
+    operateur:getSelectedOperator(),
     email: emailValue,
     num: phoneValue,
     password: confirmPasswordValue
@@ -151,15 +181,59 @@ function registrer(){
 })
 .then(response => response.json())
 .then(data => {
-  //console.log("Réponse du serveur :", data);
-  // Attendre 2 secondes avant de rediriger
-  setTimeout(() => {
+
+    add_cookkie(data.message);
+    if (data.message != "400"){
+
+    // Optionally, display a success message
+    const successAlert = document.createElement('div');
+    successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
+    successAlert.role = 'alert';
+    successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+    document.body.prepend(successAlert);
+
+    setTimeout(() => {
     window.location.href = "profile.html";
-  }, 2000);
+    }, 2000);
+
+    }
+    
+    else {
+        // Optionally, display a success message
+        const successAlert = document.createElement('div');
+        successAlert.className = 'alert alert-danger alert-dismissible fade show mt-3';
+        successAlert.role = 'alert';
+        successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        document.body.prepend(successAlert);
+    }
 })
 .catch(error => {
-  //console.error("Erreur :", error);
+  console.error("Erreur :", error);
   alert("erreur d inscription");
 });
 
+}
+
+function add_cookkie(data){
+    SetCookie(data)
+}
+
+function SetCookie(VariableDuCookie ){
+  if (!navigator.cookieEnabled){
+      return;
+  }
+  document.cookie = "identifiant="+VariableDuCookie+"; expires=Thu, 4 Dec 2036 12:00:00 UTC; path=/";
+}
+
+function ReadCookie(){
+  return decodeURIComponent(document.cookie); 
+}
+
+function ReadIdFromCookie(){
+  var cookie = ReadCookie();
+  var id = cookie.split("identifiant=")[1];
+  if (id){
+      return id.split(";")[0];
+  }
+  return null;
 }

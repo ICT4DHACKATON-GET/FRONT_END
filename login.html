@@ -16,24 +16,24 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form id="signupForm">
                 <h1 class="text-center">Créér un compte</h1>
                 <span>Ou utiliser votre email pour vous enregistrer</span>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <input type="password" placeholder="Confirmer le mot de passe">
+                <input type="text" placeholder="Name" required id="nameInput">
+                <input type="email" placeholder="Email" required id="emailInput">
+                <input type="password" placeholder="Password" required id="passwordInput">
+                <input type="password" placeholder="Confirmer le mot de passe" id="confirmPasswordInput">
                 
                 <button id="sigin">S'inscrire</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form id="loginForm">
                 <h1 class="text-center">Connecter vous</h1>
                 <br>
                 <span>Ou utiliser votre mot de passe d-email</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" placeholder="Email" required id="emailInput2">
+                <input type="password" placeholder="Password" required id="passwordInput2">
                 <a href="#">Mot de passe oublié?</a>
                 <button id="login1">Connexion</button>
             </form>

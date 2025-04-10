@@ -28,6 +28,19 @@ logi.addEventListener('click', () => {
 });
 
 function login(){
+    // Prevent the default form submit action
+  event.preventDefault();
+
+  // Retrieve values from the input fields using their IDs
+  const emailValue2 = document.getElementById('emailInput2').value;
+  const passwordValue2 = document.getElementById('passwordInput2').value;
+
+  // Use the values as needed (for example, logging them in the console)
+  console.log("Email :", emailValue2);
+  console.log("Mot de passe :", passwordValue2);
+
+  // Further processing, such as sending these values to a back-end server, could be performed here.
+
     fetch(ip+"login", {
   method: "POST",
   headers: {
@@ -55,6 +68,29 @@ function login(){
 }
 
 function registrer(){
+
+    // Prevent the default form submission behavior
+    alert("Formulaire soumis !");
+    event.preventDefault();
+
+    // Retrieve the values from the form inputs
+    const nameValue = document.getElementById('nameInput').value;
+    const emailValue = document.getElementById('emailInput').value;
+    const passwordValue = document.getElementById('passwordInput').value;
+    const confirmPasswordValue = document.getElementById('confirmPasswordInput').value;
+
+    // Optionally perform validation (for example, check if passwords match)
+    if (passwordValue !== confirmPasswordValue) {
+        alert("Les mots de passe ne correspondent pas !");
+        return;
+    }
+
+    // Now you have stored form values in your variables:
+    console.log("Nom :", nameValue);
+    console.log("Email :", emailValue);
+    console.log("Mot de passe :", passwordValue);
+    // You can now use these variables to further process the form data, for example, send them to a server.
+
     fetch(ip+"sigin", {
   method: "POST",
   headers: {

@@ -16,12 +16,56 @@ loginBtn.addEventListener('click', () => {
 
 // connexion back-end
 
-const register = document.getElementById('sigin');
 const logi = document.getElementById('login1');
+// Get the phone number value and validate
+const phoneInput = document.getElementById('phoneInput');
+const phoneValue = phoneInput.value.trim();
 
-register.addEventListener('click', () => {
-    registrer();
+// Reference to the Bootstrap Modal
+var phoneModal = new bootstrap.Modal(document.getElementById('phoneModal'));
+    
+// When the main form is submitted
+document.getElementById('signupForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevent default submission behavior
+  
+  // You can gather data from the main form if needed
+  const nameValue = document.getElementById('nameInput').value.trim();
+  console.log('Main form submitted. Name:', nameValue);
+  
+  // Show the phone number prompt modal
+  phoneModal.show();
 });
+
+// Handling the phone number form submission inside the modal
+document.getElementById('phoneForm').addEventListener('submit', function (event) {
+  registrer(); 
+
+  event.preventDefault(); // Prevent default form submission
+  
+  
+  if (!phoneValue) {
+    phoneInput.classList.add('is-invalid');
+    return;
+  } else {
+    phoneInput.classList.remove('is-invalid');
+  }
+  
+  console.log('Phone number submitted:', phoneValue);
+  
+  // You can now combine data from the main form and the phone input as needed to process or submit to your server
+  
+  // Hide the modal on successful submission
+  phoneModal.hide();
+
+  // Optionally, display a success message
+  const successAlert = document.createElement('div');
+  successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
+  successAlert.role = 'alert';
+  successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+  document.body.prepend(successAlert);
+});
+
+
 
 logi.addEventListener('click', () => {
     login();
@@ -47,9 +91,9 @@ function login(){
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    email: "tsanga@gmail.com",
+    email: emailValue2,
     num: "620142649",
-    password: "fdfsdfd"
+    password: passwordValue2
   })
 })
 .then(response => response.json())
@@ -97,12 +141,12 @@ function registrer(){
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    name:"tsanga awana ddfd",
-    password:"dfdfdfdf",
+    name:nameValue,
+    password:passwordValue,
     operateur:"MTN",
-    email: "tsanga@gmail.com",
-    num: "620142649",
-    password: "fdfsdfd"
+    email: emailValue,
+    num: phoneValue,
+    password: confirmPasswordValue
   })
 })
 .then(response => response.json())

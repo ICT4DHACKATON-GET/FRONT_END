@@ -14,7 +14,7 @@ button2.click();
 });
 
 // Example balance (this would normally come from your server-side or database)
-const currentBalance = 2500;  // Assume the user has 2500 FCFA in their account
+let currentBalance = 0;  // Assume the user has 0 FCFA in their account
 const validUserIds = ["user123", "user456", "user789"]; // Example valid user IDs
 
 document.getElementById('sendMoneyForm').addEventListener('submit', function(event) {
@@ -33,7 +33,7 @@ document.getElementById('sendMoneyForm').addEventListener('submit', function(eve
     }
 
     // Validate the send amount
-    if (isNaN(sendAmount) || sendAmount <= 500 || sendAmount > currentBalance) {
+    if (isNaN(sendAmount) || sendAmount <= 100 || sendAmount > currentBalance) {
         document.getElementById('amountErrorMessage').style.display = 'block';
         return;
     } else {
@@ -41,8 +41,9 @@ document.getElementById('sendMoneyForm').addEventListener('submit', function(eve
     }
 
     // If both validations pass, simulate sending money (you can replace this with actual logic)
-    alert(`Successfully transferred ${sendAmount} FCFA to ${recipientId}!`);
+    //alert(`Successfully transferred ${sendAmount} FCFA to ${recipientId}!`);
     // You can add a function to submit the form data to your backend, for example, using AJAX
+    depose(id, sendAmount)
 });
 
 
@@ -53,14 +54,15 @@ document.getElementById('depositForm').addEventListener('submit', function(event
     const depositAmount = parseInt(document.getElementById('depositAmount').value);
 
     // Validate the deposit amount
-    if (isNaN(depositAmount) || depositAmount <= 500) {
+    if (isNaN(depositAmount) || depositAmount <= 100) {
         // Show error message if invalid
         document.getElementById('error-message').style.display = 'block';
     } else {
         // Proceed with form submission logic (e.g., submit to the server)
         document.getElementById('error-message').style.display = 'none';
-        alert(`Deposit of ${depositAmount} FCFA successful!`);
+        //alert(`Deposit of ${depositAmount} FCFA successful!`);
         // You can add a function to actually submit the form data or trigger a backend request
+        collect(id, depositAmount)
     }
 });
 
@@ -103,10 +105,35 @@ function depose(ide, montant){
       .then(data => {
         console.log('Réponse de l\'API:', data);
         // Traiter la réponse ici (ex: afficher un message, mettre à jour l'UI)
+
+        if (data == 200){
+            // Optionally, display a success message
+            const successAlert = document.createElement('div');
+            successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
+            successAlert.role = 'alert';
+            successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+            document.body.prepend(successAlert);
+          }
+    
+          else {
+            // Optionally, display a success message
+            const successAlert = document.createElement('div');
+            successAlert.className = 'alert alert-danger alert-dismissible fade show mt-3';
+            successAlert.role = 'alert';
+            successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+            document.body.prepend(successAlert);
+        }
+
       })
       .catch(error => {
         console.error('Erreur lors de l\'appel API:', error);
         // Gérer les erreurs
+           // Optionally, display a success message
+           const successAlert = document.createElement('div');
+           successAlert.className = 'alert alert-danger alert-dismissible fade show mt-3';
+           successAlert.role = 'alert';
+           successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+           document.body.prepend(successAlert);
       });
 }
 
@@ -118,17 +145,40 @@ function collect(ide, montant){
       },
       body: JSON.stringify({
         id:ide,         // identifiant de l aute de la transaction
-        montant: montant     // Montant du paiement
+        montant: montant,     // Montant du paiement
       })
     })
     .then(response => response.json()) // Récupérer la réponse en format JSON
     .then(data => {
       console.log('Réponse de l\'API:', data);
-      // Traiter la réponse ici (ex: afficher un message, mettre à jour l'UI)
+      if (data == "200"){
+        // Optionally, display a success message
+        const successAlert = document.createElement('div');
+        successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
+        successAlert.role = 'alert';
+        successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        document.body.prepend(successAlert);
+      }
+
+      else {
+        // Optionally, display a success message
+        const successAlert = document.createElement('div');
+        successAlert.className = 'alert alert-danger alert-dismissible fade show mt-3';
+        successAlert.role = 'alert';
+        successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+        document.body.prepend(successAlert);
+    }
+      
     })
     .catch(error => {
       console.error('Erreur lors de l\'appel API:', error);
       // Gérer les erreurs
+         // Optionally, display a success message
+         const successAlert = document.createElement('div');
+         successAlert.className = 'alert alert-danger alert-dismissible fade show mt-3';
+         successAlert.role = 'alert';
+         successAlert.innerHTML = 'Thank you! Your information has been submitted.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+         document.body.prepend(successAlert);
     });
 }
 
@@ -146,14 +196,17 @@ function get_info(identifiant){
       .then(response => response.json()) // Récupérer la réponse en format JSON
       .then(data => {
         console.log(data)
-        alert(data)
+        document.getElementById("nom").innerHTML = data.NAME
+        document.getElementById("email").innerHTML = data.EMAIL
+        document.getElementById("num").innerHTML = data.NUMERO
+        document.getElementById("solde").innerHTML = data.SOLDE
+        currentBalance = data.SOLDE
       })
       .catch(error => {
         console.error('Erreur lors de l\'appel API:', error);
         alert("Error");
       });
 }
-
 
 
 function SetCookie(VariableDuCookie ){

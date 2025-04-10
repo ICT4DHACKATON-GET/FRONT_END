@@ -75,7 +75,7 @@ function login(){
     // Prevent the default form submit action
   event.preventDefault();
 
-  add_cookkie(data.message);
+  //add_cookkie(data.message);
 
   // Retrieve values from the input fields using their IDs
   const emailValue2 = document.getElementById('emailInput2').value;
